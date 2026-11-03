@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import MagicMock
-from pedido.pedido import Item, Pedido
+from pedido.pedido import Item, Pedido, contar_frete_gratis
 
 
 # =============================================================
@@ -46,6 +46,16 @@ def test_total_com_desconto_de_10_por_cento():
 
 # Requisito 1 — contar_frete_gratis(pedidos) -> int
 # Escreva os testes ANTES de implementar a função
+
+
+def pedido_com_subtotal(valor, cliente="Cliente"):
+    return Pedido(cliente, [Item("Lanche", valor, 1)])
+
+
+def test_contar_frete_gratis_todos():
+    pedidos = [pedido_com_subtotal(50.0), pedido_com_subtotal(80.0), pedido_com_subtotal(120.0)]
+    assert contar_frete_gratis(pedidos) == 3
+
 
 
 
