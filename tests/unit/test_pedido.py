@@ -89,6 +89,16 @@ def test_situacao_confirmado(pedido_pequeno):
     assert pedido_pequeno.situacao(0) == "Confirmado"
 
 
+def test_situacao_exatamente_25_por_cento_segue_para_frete():
+    pedido = Pedido("Elis", [Item("Hambúrguer", 15.0, 4)])
+    assert pedido.situacao(1) == "Confirmado com frete grátis"
+
+
+def test_situacao_pouco_acima_de_25_por_cento():
+    pedido = Pedido("Elis", [Item("Esfiha", 8.0, 7)])
+    assert pedido.situacao(2) == "Cancelado por falta de estoque"
+
+
 
 
 # Requisito 3 — sugerir_frete_gratis(sms_service) -> None
