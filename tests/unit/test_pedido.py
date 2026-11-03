@@ -85,6 +85,10 @@ def test_situacao_confirmado_com_frete_gratis(pedido_grande):
     assert pedido_grande.situacao(0) == "Confirmado com frete grátis"
 
 
+def test_situacao_confirmado(pedido_pequeno):
+    assert pedido_pequeno.situacao(0) == "Confirmado"
+
+
 
 
 # Requisito 3 — sugerir_frete_gratis(sms_service) -> None
