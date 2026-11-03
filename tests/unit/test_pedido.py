@@ -123,3 +123,10 @@ def test_nao_sugere_frete_gratis_com_exatamente_50():
     Pedido("Carla", [Item("Combo", 50.0, 1)]).sugerir_frete_gratis(sms)
     sms.enviar.assert_not_called()
 
+
+def test_valor_faltante_em_centavos():
+    sms = MagicMock()
+    pedido = Pedido("Davi", [Item("Açaí", 15.9, 3)])
+    pedido.sugerir_frete_gratis(sms)
+    sms.enviar.assert_called_once_with("Davi", 2.3)
+
