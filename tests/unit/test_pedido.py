@@ -23,6 +23,11 @@ def test_subtotal_considera_quantidade(pedido_pequeno):
     assert pedido_pequeno.subtotal() == 15.0
 
 
+def test_frete_gratis_com_exatamente_50():
+    pedido = Pedido("Carla", [Item("Combo", 50.0, 1)])
+    assert pedido.tem_frete_gratis() is True
+
+
 
 
 # =============================================================
