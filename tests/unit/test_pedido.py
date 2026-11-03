@@ -62,6 +62,15 @@ def test_contar_frete_gratis_nenhum():
     assert contar_frete_gratis(pedidos) == 0
 
 
+def test_contar_frete_gratis_lista_mista(pedido_pequeno, pedido_grande):
+    pedidos = [pedido_pequeno, pedido_grande, pedido_com_subtotal(50.0), pedido_com_subtotal(30.0)]
+    assert contar_frete_gratis(pedidos) == 2
+
+
+def test_contar_frete_gratis_lista_vazia():
+    assert contar_frete_gratis([]) == 0
+
+
 
 
 # Requisito 2 — situacao(unidades_indisponiveis) -> str
