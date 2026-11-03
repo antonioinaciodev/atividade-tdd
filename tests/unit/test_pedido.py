@@ -28,6 +28,10 @@ def test_frete_gratis_com_exatamente_50():
     assert pedido.tem_frete_gratis() is True
 
 
+def test_item_mais_barato(pedido_grande):
+    assert pedido_grande.item_mais_barato().nome == "Refrigerante"
+
+
 
 
 # =============================================================
