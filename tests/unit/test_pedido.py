@@ -32,6 +32,11 @@ def test_item_mais_barato(pedido_grande):
     assert pedido_grande.item_mais_barato().nome == "Refrigerante"
 
 
+def test_total_com_desconto_de_10_por_cento():
+    pedido = Pedido("Davi", [Item("Pizza", 100.0, 1)])
+    assert pedido.total_com_desconto(10) == 90.0
+
+
 
 
 # =============================================================
