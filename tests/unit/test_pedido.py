@@ -19,6 +19,11 @@ def test_exemplo_quantidade_total(pedido_pequeno):
 # =============================================================
 
 
+def test_subtotal_considera_quantidade(pedido_pequeno):
+    assert pedido_pequeno.subtotal() == 15.0
+
+
+
 
 # =============================================================
 # PARTE 2 — Implemente com TDD
